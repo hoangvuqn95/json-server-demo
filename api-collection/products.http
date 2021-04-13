@@ -1,0 +1,61 @@
+@baseUrl=http://localhost:3000/api
+
+
+@resourceName=products
+
+# Product
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?price_gte=900
+
+###
+
+# @name filterProducts
+GET {{baseUrl}}/{{resourceName}}?name_like=tasty
+
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=20
+
+### 
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "categoryId": "d49526e9-93a5-445c-8095-70132eab3983",
+    "name": "Tasty Steel Gloves",
+    "color": "plum",
+    "price": 676,
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "thumbnailUrl": "http://placeimg.com/400/400"
+}
+
+###
+
+# @name update
+PATCH {{baseUrl}}/{{resourceName}}/pr96XFH
+Content-Type: application/json
+
+{
+    "name": "Tasty Steel Gloves Update",
+    "color": "red",
+    "price": 950
+}
+
+###
+
+# @name remove
+DELETE {{baseUrl}}/{{resourceName}}/2
